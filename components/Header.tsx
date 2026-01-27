@@ -37,7 +37,7 @@ const Header = () => {
             href="#" 
             className="text-xl font-bold tracking-tight transition-transform duration-300 hover:scale-105"
           >
-            DKP
+            
           </a>
 
           {/* Desktop Navigation */}

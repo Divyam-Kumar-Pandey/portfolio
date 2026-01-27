@@ -4,6 +4,8 @@ import { ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
+import Image from "next/image";
+import headshot from "@/public/wdkp.png";
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -114,8 +116,9 @@ const Hero = () => {
             style={{ transitionDelay: "600ms" }}
           >
             <div className="relative group">
-              <div className="w-80 h-96 bg-secondary border-2 border-border shadow-lg flex items-center justify-center transition-transform duration-500 group-hover:translate-x-[-4px] group-hover:translate-y-[-4px]">
-                <span className="text-6xl font-bold text-muted-foreground/30 transition-all duration-500 group-hover:scale-110">DKP</span>
+              <div className="w-80 h-96 bg-secondary border-2 border-border shadow-lg flex items-center justify-center transition-transform duration-500 group-hover:translate-x-[-4px] group-hover:translate-y-[-4px] overflow-hidden">
+                {/* <span className="text-6xl font-bold text-muted-foreground/30 transition-all duration-500 group-hover:scale-110">DKP</span> */}
+                <Image src={headshot} alt="Profile" width={320} height={384} className="h-full w-full object-cover" />
               </div>
               <div className="absolute -bottom-4 -right-4 w-80 h-96 border-2 border-border -z-10 transition-all duration-500 group-hover:-bottom-6 group-hover:-right-6" />
             </div>
