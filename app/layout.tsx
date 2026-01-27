@@ -3,8 +3,8 @@ import Providers from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Personal portfolio website",
+  title: "Divyam Kumar Pandey",
+  description: "Backend Developer",
 };
 
 export default function RootLayout({

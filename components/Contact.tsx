@@ -4,7 +4,6 @@ import { Mail, Github, Linkedin, MapPin, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState } from "react";
-import { getSupabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 const Contact = () => {
@@ -65,16 +64,20 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const supabase = getSupabase();
-      const { error } = await supabase
-        .from("contact_submissions")
-        .insert({
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
           message: formData.message.trim(),
-        });
+        }),
+      });
 
-      if (error) throw error;
+      if (!response.ok) {
+        const payload = await response.json().catch(() => null);
+        throw new Error(payload?.error || "Request failed");
+      }
 
       toast.success("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });

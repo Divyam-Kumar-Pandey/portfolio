@@ -52,13 +52,26 @@ const AdminPage = () => {
   const fetchSubmissions = async () => {
     try {
       const supabase = getSupabase();
-      const { data, error } = await supabase
-        .from("contact_submissions")
-        .select("*")
-        .order("created_at", { ascending: false });
+      const { data: { session } } = await supabase.auth.getSession();
 
-      if (error) throw error;
-      setSubmissions(data || []);
+      if (!session?.access_token) {
+        router.push("/auth");
+        return;
+      }
+
+      const response = await fetch("/api/contact-submissions", {
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+      });
+
+      if (!response.ok) {
+        const payload = await response.json().catch(() => null);
+        throw new Error(payload?.error || "Failed to load submissions");
+      }
+
+      const payload = await response.json();
+      setSubmissions(payload?.data || []);
     } catch (error) {
       console.error("Error fetching submissions:", error);
       toast.error("Failed to load submissions");
