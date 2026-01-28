@@ -21,7 +21,7 @@ const projects = [
     live: null,
   },
   {
-    title: "RP Hall Mess Web Backend",
+    title: "RP Hall (IIT KGP) Mess Web Backend",
     date: "Jul 2024 – Aug 2024",
     description:
       "Backend system for access control, feedback, and ticket distribution at IIT Kharagpur, impacting 1,000+ students and staff.",
