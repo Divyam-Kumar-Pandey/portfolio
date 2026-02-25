@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import headshot from "@/public/wdkp.png";
+import { RESUME_URL } from "@/lib/constants";
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -19,37 +20,33 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <p 
-                className={`text-sm font-mono tracking-wide text-muted-foreground uppercase transition-all duration-700 ${
-                  isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
+              <p
+                className={`text-sm font-mono tracking-wide text-muted-foreground uppercase transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "100ms" }}
               >
                 Backend Developer
               </p>
-              <h1 
-                className={`text-5xl md:text-7xl font-bold leading-tight tracking-tight transition-all duration-700 ${
-                  isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
+              <h1
+                className={`text-5xl md:text-7xl font-bold leading-tight tracking-tight transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "200ms" }}
               >
                 Divyam Kumar Pandey
               </h1>
-              <p 
-                className={`text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed transition-all duration-700 ${
-                  isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
+              <p
+                className={`text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "300ms" }}
               >
-                Backend-leaning full stack engineer building scalable production systems. 
+                Backend-leaning full stack engineer building scalable production systems.
                 IIT Kharagpur graduate. Currently crafting reliable infrastructure at Pync.
               </p>
             </div>
 
-            <div 
-              className={`flex flex-wrap gap-4 transition-all duration-700 ${
-                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
+            <div
+              className={`flex flex-wrap gap-4 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
               style={{ transitionDelay: "400ms" }}
             >
               <Button
@@ -70,10 +67,9 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div 
-              className={`flex items-center gap-4 pt-4 transition-all duration-700 ${
-                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
+            <div
+              className={`flex items-center gap-4 pt-4 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
               style={{ transitionDelay: "500ms" }}
             >
               <a
@@ -99,7 +95,7 @@ const Hero = () => {
                 <Mail size={20} />
               </a>
               <a
-                href="https://drive.google.com/file/d/1q0xJg0HKzLojTt_wQobFXK81YSd7jxaS/view"
+                href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 border-2 border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-2xs hover:shadow-xs hover:scale-110"
@@ -109,10 +105,9 @@ const Hero = () => {
             </div>
           </div>
 
-          <div 
-            className={`hidden lg:flex justify-center transition-all duration-1000 ${
-              isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-            }`}
+          <div
+            className={`hidden lg:flex justify-center transition-all duration-1000 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+              }`}
             style={{ transitionDelay: "600ms" }}
           >
             <div className="relative group">
@@ -125,10 +120,9 @@ const Hero = () => {
           </div>
         </div>
 
-        <div 
-          className={`flex justify-center mt-16 pb-8 transition-all duration-700 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
+        <div
+          className={`flex justify-center mt-16 pb-8 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
           style={{ transitionDelay: "800ms" }}
         >
           <a

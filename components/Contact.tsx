@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState } from "react";
 import { toast } from "sonner";
+import { RESUME_URL } from "@/lib/constants";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -38,7 +39,7 @@ const Contact = () => {
       isLink: true,
     },
     {
-      href: "https://drive.google.com/file/d/1q0xJg0HKzLojTt_wQobFXK81YSd7jxaS/view",
+      href: RESUME_URL,
       icon: FileText,
       title: "Resume",
       subtitle: "View Resume",
@@ -55,14 +56,14 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast.error("Please fill in all fields");
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -92,10 +93,9 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 border-b-2 border-border" ref={ref}>
       <div className="container mx-auto px-6">
-        <div 
-          className={`mb-16 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+        <div
+          className={`mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h2>
           <div className={`h-1 bg-foreground transition-all duration-700 delay-300 ${isVisible ? "w-24" : "w-0"}`} />
@@ -103,15 +103,14 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <p 
-              className={`text-lg text-muted-foreground leading-relaxed transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+            <p
+              className={`text-lg text-muted-foreground leading-relaxed transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
               style={{ transitionDelay: "200ms" }}
             >
-              I'm currently open to new opportunities in backend engineering, 
-              full-stack development (backend-heavy), and platform/infrastructure roles. 
-              I thrive in startups and high-ownership teams where I can build systems 
+              I'm currently open to new opportunities in backend engineering,
+              full-stack development (backend-heavy), and platform/infrastructure roles.
+              I thrive in startups and high-ownership teams where I can build systems
               with real users and operational complexity.
             </p>
 
@@ -129,9 +128,8 @@ const Contact = () => {
                   </>
                 );
 
-                const className = `flex items-center gap-4 p-4 border-2 border-border transition-all duration-500 group shadow-xs ${
-                  link.isLink ? "hover:bg-primary hover:text-primary-foreground hover:shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px]" : ""
-                } ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`;
+                const className = `flex items-center gap-4 p-4 border-2 border-border transition-all duration-500 group shadow-xs ${link.isLink ? "hover:bg-primary hover:text-primary-foreground hover:shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px]" : ""
+                  } ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`;
 
                 if (link.isLink && link.href) {
                   return (
@@ -161,18 +159,16 @@ const Contact = () => {
             </div>
           </div>
 
-          <div 
-            className={`bg-secondary border-2 border-border p-8 shadow-md transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
-            }`}
+          <div
+            className={`bg-secondary border-2 border-border p-8 shadow-md transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+              }`}
             style={{ transitionDelay: "400ms" }}
           >
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div 
-                className={`transition-all duration-500 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
+              <div
+                className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "500ms" }}
               >
                 <label htmlFor="name" className="block text-sm font-bold mb-2">
@@ -187,10 +183,9 @@ const Contact = () => {
                   className="w-full px-4 py-3 border-2 border-border bg-background focus:outline-none focus:ring-2 focus:ring-foreground transition-all duration-300 focus:translate-x-[-2px] focus:translate-y-[-2px] focus:shadow-sm"
                 />
               </div>
-              <div 
-                className={`transition-all duration-500 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
+              <div
+                className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "600ms" }}
               >
                 <label htmlFor="email" className="block text-sm font-bold mb-2">
@@ -205,10 +200,9 @@ const Contact = () => {
                   className="w-full px-4 py-3 border-2 border-border bg-background focus:outline-none focus:ring-2 focus:ring-foreground transition-all duration-300 focus:translate-x-[-2px] focus:translate-y-[-2px] focus:shadow-sm"
                 />
               </div>
-              <div 
-                className={`transition-all duration-500 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
+              <div
+                className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "700ms" }}
               >
                 <label htmlFor="message" className="block text-sm font-bold mb-2">
@@ -227,9 +221,8 @@ const Contact = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className={`w-full shadow-sm hover:shadow-md hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-300 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
+                className={`w-full shadow-sm hover:shadow-md hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all duration-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "800ms" }}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
